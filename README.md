@@ -2,7 +2,7 @@
 
 An intelligent, real-time logistics and fleet management platform engineered for Indian highway networks and supply chain corridors (NH-44, NH-48, Golden Quadrilateral).
 
-![Project Preview](public/placeholder.svg)
+
 
 ---
 
