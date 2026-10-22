@@ -1,0 +1,116 @@
+# --- Dependencies ---
+node_modules/
+jspm_packages/
+
+# --- Package manager caches / debug logs ---
+.npm/
+.pnpm-store/
+.pnpm-debug.log*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+bun-debug.log*
+
+# --- Logs & diagnostics ---
+logs/
+*.log
+report.[0-9]*.json
+
+# --- Runtime data / pids ---
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# --- Env files (keep examples) ---
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.local.example
+
+# --- Coverage ---
+coverage/
+.nyc_output/
+
+# --- Build outputs / caches ---
+dist/
+build/
+electron-dist/
+dist-electron/
+out/
+bin/
+.tmp/
+tmp/
+temp/
+.cache/
+.esbuild/
+.esbuild-cache/
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.vite/
+.vite-inspect/
+
+# --- TypeScript ---
+*.tsbuildinfo
+
+# --- Common web frameworks ---
+.next/
+.nuxt/
+.svelte-kit/
+.storybook-out/
+storybook-static/
+.angular/
+.docusaurus/
+.vercel/
+.netlify/
+.output/
+
+# --- E2E / testing artifacts ---
+playwright-report/
+test-results/
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# --- Editors & OS junk ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/tasks.json
+.idea/
+*.iml
+.vs/
+*.swp
+.DS_Store
+Thumbs.db
+.node_repl_history
+
+# --- Uploaded Files ---
+uploaded_files/
+
+# --- Python ---
+venv/
+.venv/
+env/
+backend/venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# --- Vite build temp ---
+vite.config.ts.timestamp-*
+
+

@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+==========================================================================
+【AI HANDOVER NOTE】
+1. DESIGN PHILOSOPHY:
+   - Adaptive Industrialism: This design system bridges the gap between high-frequency AI decision-making and the rugged, physical reality of the Indian trucking industry. It utilizes a 'Physicality' approach where cards and surfaces have subtle rim-lights and ambient shadows to mimic the metallic and sturdy nature of logistics hardware.
+   - Modern SaaS Precision: The UI employs a Modular Bento-grid layout to organize complex real-time data (fuel, GPS, load capacity) into digestible units, ensuring fleet operators can act instantly on AI-generated 'Adaptive Processes'.
+   - Visual Tone: Trustworthy, high-tech, and high-visibility. It uses a deep 'Signal Blue' as the primary anchor to denote stability in the chaotic logistics environment.
+
+2. TYPOGRAPHY:
+   - Sans (Inter): Chosen for its exceptional legibility at small sizes on mobile devices used by drivers on highways (NH-44/NH-48). The variable weight allows for strong hierarchy in dense data tables.
+   - Mono (JetBrains Mono): Specifically used for license plates (e.g., MH-12-AB-1234), GPS coordinates, INR currency formatting, and technical AI reasoning strings to provide a distinct 'data-driven' feel.
+
+3. COLOR SYSTEM:
+   - Brand Identity: The primary hue (255) is a 'Navigation Blue' symbolizing the guiding nature of the AI Path Agent. 
+   - Semantic Mapping: --primary and --ring use this navigation blue. --accent uses a desaturated version to highlight interactive elements without overwhelming the user. 
+   - Logistics Semantics: Success (Green) for 'Delivered' or 'Optimal Fuel', Warning (Amber) for 'Delayed' or 'Low Fuel', and Destructive (Red) for 'Accidents' or 'Critical Maintenance'. All colors are optimized for high-glare outdoor environments.
+
+4. USAGE GUIDE:
+   - Layout: A Dashboard-first approach using a fixed sidebar for rapid navigation between Fleet, Loads, and Analytics. 
+   - Component Styling: Cards should use a subtle border (oklch 0.3) and 'rim-light' effects in dark mode to separate them from the deep background. 
+   - Feedback: Use Framer Motion for 'Adaptive' transitions—when the AI reroutes a vehicle, the UI should smoothly shift elements to reflect the new priority.
+==========================================================================
+*/
+
+:root {
+  /* Typography */
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: JetBrains Mono, monospace;
+  
+  /* Radius */
+  --radius: 0.6rem;
+
+  /* Core UI Tokens */
+  --background: oklch(0.98 0.005 255);
+  --foreground: oklch(0.21 0.02 255);
+  --card: oklch(1.0 0 0);
+  --card-foreground: oklch(0.21 0.02 255);
+  --popover: oklch(1.0 0 0);
+  --popover-foreground: oklch(0.21 0.02 255);
+  --primary: oklch(0.52 0.16 255);
+  --primary-foreground: oklch(0.98 0.005 255);
+  --secondary: oklch(0.94 0.01 255);
+  --secondary-foreground: oklch(0.25 0.02 255);
+  --muted: oklch(0.94 0.01 255);
+  --muted-foreground: oklch(0.45 0.02 255);
+  --accent: oklch(0.94 0.02 255);
+  --accent-foreground: oklch(0.21 0.02 255);
+  --destructive: oklch(0.6 0.18 25);
+  --destructive-foreground: oklch(0.98 0.01 25);
+  --border: oklch(0.89 0.01 255);
+  --input: oklch(0.89 0.01 255);
+  --ring: oklch(0.52 0.16 255);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.55 0.15 255);
+  --chart-2: oklch(0.65 0.12 190);
+  --chart-3: oklch(0.45 0.14 220);
+  --chart-4: oklch(0.7 0.12 150);
+  --chart-5: oklch(0.6 0.15 30);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.97 0.005 255);
+  --sidebar-foreground: oklch(0.3 0.02 255);
+  --sidebar-primary: oklch(0.52 0.16 255);
+  --sidebar-primary-foreground: oklch(0.98 0.005 255);
+  --sidebar-accent: oklch(0.92 0.01 255);
+  --sidebar-accent-foreground: oklch(0.21 0.02 255);
+  --sidebar-border: oklch(0.9 0.01 255);
+  --sidebar-ring: oklch(0.52 0.16 255);
+}
+
+.dark {
+  --background: oklch(0.14 0.02 255);
+  --foreground: oklch(0.92 0.01 255);
+  --card: oklch(0.18 0.02 255);
+  --card-foreground: oklch(0.92 0.01 255);
+  --popover: oklch(0.16 0.02 255);
+  --popover-foreground: oklch(0.92 0.01 255);
+  --primary: oklch(0.62 0.18 255);
+  --primary-foreground: oklch(0.14 0.02 255);
+  --secondary: oklch(0.22 0.02 255);
+  --secondary-foreground: oklch(0.92 0.01 255);
+  --muted: oklch(0.22 0.02 255);
+  --muted-foreground: oklch(0.65 0.02 255);
+  --accent: oklch(0.25 0.03 255);
+  --accent-foreground: oklch(0.95 0.01 255);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 25);
+  --border: oklch(0.25 0.02 255);
+  --input: oklch(0.25 0.02 255);
+  --ring: oklch(0.62 0.18 255);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.65 0.18 255);
+  --chart-2: oklch(0.7 0.14 190);
+  --chart-3: oklch(0.55 0.16 220);
+  --chart-4: oklch(0.75 0.14 150);
+  --chart-5: oklch(0.65 0.18 30);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.12 0.02 255);
+  --sidebar-foreground: oklch(0.85 0.01 255);
+  --sidebar-primary: oklch(0.62 0.18 255);
+  --sidebar-primary-foreground: oklch(1.0 0 0);
+  --sidebar-accent: oklch(0.2 0.03 255);
+  --sidebar-accent-foreground: oklch(0.95 0.01 255);
+  --sidebar-border: oklch(0.2 0.02 255);
+  --sidebar-ring: oklch(0.62 0.18 255);
+}
+
+@theme inline {
+  /* Shadcn Core Mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts Mapping */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}
